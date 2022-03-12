@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('./routes/db');
+const dbRoutes = require('./routes/db');
 const html = require('./routes/html');
 
 const app = express()
@@ -9,6 +9,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 app.use(express.static("public"))
 
+app.use("/api", dbRoutes)
 app.use("/", html)
 
 
