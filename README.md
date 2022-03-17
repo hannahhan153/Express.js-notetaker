@@ -28,7 +28,9 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 ```
 
 ## Screenshots
+![Screenshot](images/Screen%20Shot%202022-03-17%20at%201.25.04%20PM.png)
 
-
-## Link to Webpage
+## Link to GitHub Repository
 https://hannahhan153.github.io/Express.js-notetaker/ 
+## Link to Deployed Application
+https://express-js-notetaker-hh.herokuapp.com/notes
