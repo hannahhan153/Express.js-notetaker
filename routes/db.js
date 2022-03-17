@@ -1,12 +1,12 @@
 const router = require("express").Router()
 const fs = require('fs');
-var notesDb = require('./db/db.json');
+var notesDb = require('../db/db.json');
 
 router.get('/notes', (req, res) => {
 
     fs.readFile('./db/db.json', (err, data) => {
         if (err) throw err
-        console.log(JSON.parse(data))
+        // console.log(JSON.parse(data))
         res.json(JSON.parse(data))
     })
 
@@ -14,11 +14,20 @@ router.get('/notes', (req, res) => {
 
 
 router.post('/notes', (req, res) => {
-    fs.writeFile('./db/db.json', (err, data) => {
+    console.table(notesDb)
+    notesDb.push(req.body)
+    console.table(notesDb)
+    fs.writeFile('./db/db.json', JSON.stringify(notesDb),(err) => {
         if (err) throw err
-        console.log(JSON.stringify(notesDb))
-        res.json(notesDb)
+        res.sendStatus(200)
     })
 })
 
 module.exports = router
+
+// [
+//     {
+//         "title":"Test Title",
+//         "text":"Test text"
+//     }
+// ]
